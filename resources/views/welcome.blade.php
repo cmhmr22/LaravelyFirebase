@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Laravel</title>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+
+            <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <!-- FireStore -->
+        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+
+    </head>
+    <body>
+      
+
+            <div class="container text-center">
+          <h1>Tabla!</h1>
+        </div>
+        <div class=" container form-row">
+          
+          <div class="col">
+
+            <input type="text" id="nombre" placeholder="nombre" class="form-control" >
+          </div>
+          <div class="col">
+            <input type="text" id="telefono" placeholder="telefono" class="form-control" >
+          </div>
+          <div class="col">
+            <button type="submit" class="btn btn-primary" id="guardar" onclick="guardar()">Agregar</button>
+          </div>
+          
+        </div>
+    <br>
+        <div class=" text-center">
+          <table id="tabla-clientes" class="table table-hover table-dark">
+           
+            </tbody>
+          </table>
+
+        </div>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Editar datos</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+                <h6>Nombre</h6>
+                <input type="text" id="nombre-editar" placeholder="nombre" class="form-control" >
+                <br>
+                <h6>Telefono</h6>
+                <input type="text" id="telefono-editar" placeholder="telefono" class="form-control" >
+                <input type="hidden" id="id-editar">
+              </div>
+              
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" id="guardar-editar" class="btn btn-primary" onclick="editar()">Guardar cambios</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+            <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="http://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <!-- alerts -->
+        <link href="css/toastr.min.css" rel="stylesheet"/>
+        <script src="js/toastr.min.js"></script>
+        <script src="js/mis-alertas.js"></script>
+        
+        
+        <!-- app donde se alojan las funciones -->
+        <script src="js/configfirebase.js"></script>
+    </body>
+</html>
